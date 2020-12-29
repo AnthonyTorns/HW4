@@ -442,41 +442,6 @@ int accumulate(list_t list, int(*fn)(int x, int y), int identity) {
   return fn(list_first(list), accumulate(list_rest(list), fn, identity));
 }
 
-int Fib_Tail_Helper(int n, int num1, int num2, int fib_sum) {
-  if (n < 1) {
-    return num1;
-  }
-  fib_sum = num1 + num2;
-  num1 = num2;
-  num2 = fib_sum;
-  n--;
-  return Fib_Tail_Helper(n, num1, num2, fib_sum);
-}
-
-int fib_tail(int num) {
-  if (num == 0) {
-    return 0;
-  }
-  else if (num == 1) {
-    return 1;
-  }
-  int firstnum = 0;
-  int secondnum = 1;
-  int fib_sum = 0;
-  return Fib_Tail_Helper(num, firstnum, secondnum, fib_sum);
-}
-
-int fib(int n) {
-  if (n == 0) {
-    return 0;
-  }
-  else if (n == 1) {
-    return 1;
-  }
-
-  return fib(n-1) + fib(n-2);
-}
-/*
 int Fibonacci_Tail_Helper(tree_t lefttree, tree_t rigthttree, tree_t newtree, int n){
   if(n <= 1){
     return tree_elt(newtree);
@@ -501,5 +466,5 @@ int fib_tail(int n){
   return Fibonacci_Tail_Helper(zerotree, onetree, newtree,n);
   return  0;                           
 }
-*/
+
 
